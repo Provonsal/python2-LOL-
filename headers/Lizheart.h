@@ -1,0 +1,6 @@
+#include "MyObject.h"
+#include "MyType.h"
+#include "MyInt.h"
+#include "MyChar.h"
+#include "MyVar.h"
+#include "Macros.h"
