@@ -2,10 +2,10 @@
 #ifndef MYOBJECT_H_
 #define MYOBJECT_H_
 
-    // List.h code
-
-
+    
     #include "MyType.h"
+    
+    #define CAST_TO_OB(var) (MyObject*)(var.data.GetRef());
 
     /// @brief Базовый класс объекта
     struct MyObject

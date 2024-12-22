@@ -176,9 +176,20 @@ int main()
 
     myint var2 = 2032;
 
+    MyObject **arr = new MyObject*[2];
+
+    arr[0] = CAST_TO_OB(var);
+
+    // ДОДЕЛАТЬ ПРЕОБРАЗОВАНИЕ ИЗ ОБЪЕКТА В КАСТОМНЫЙ
+    MyCharObject* chptr = CAST_TO_CHAR(arr[0])
+
+    // Таким образом можно получить доступ к данным объекта
+    char *cptr = (char*)(arr[0] + sizeof(char));
 
 
-    print(var, var2);
+
+
+    print(*cptr);
 
     return 0;
 }

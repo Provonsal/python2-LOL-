@@ -51,4 +51,26 @@
             return os;
         };
     };
+
+    template <>
+    class MyVar<int*> : public MyObject
+    {
+    public:
+        MyCharObject data;
+
+        MyVar() : MyObject({"MyVariable", sizeof(MyVar), 0})
+        {
+            data = {'\0'};
+        };
+        MyVar(char v) : MyObject({"MyVariable", sizeof(MyVar), 0})
+        {
+            data = {v};
+        };
+
+        friend std::ostream &operator<<(std::ostream &os, const MyVar &ob)
+        {
+            os << ob.data.GetValue();
+            return os;
+        };
+    };
 #endif // MYTEMPLATES_H_

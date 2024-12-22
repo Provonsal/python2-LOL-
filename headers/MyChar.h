@@ -3,6 +3,8 @@
 
     #include "MyObject.h"
 
+    #define CAST_TO_CHAR(ob) (*MyCharObject)(ob+ob.type->basicsize);
+
     /// @brief Мой Объект символа
     class MyCharObject : public MyObject
     {
@@ -11,12 +13,16 @@
         char value = 0;
     public:
 
-        MyCharObject() : MyObject({"MyChar", sizeof(char), 0}), value(0) {};
-        MyCharObject(char v) : MyObject({"MyChar", sizeof(char), 0}), value(v) {};
+        MyCharObject() : MyObject({"MyChar", sizeof(MyCharObject), 0}), value(0) {};
+        MyCharObject(char v) : MyObject({"MyChar", sizeof(MyCharObject), 0}), value(v) {};
 
         char GetValue() const
         {
             return value;
+        }
+
+        Type* GetRef(){
+            return &type;
         }
     };
 #endif // MYCHAROBJECT_H_
